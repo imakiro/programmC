@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main (int argc, char *argv[]){
+int min = 0;
+int maj = 0;
+int other = 0;
+	for (int i=1;i<argc;i++){
+		int k = strlen(argv[i]);
+		int j = 0;
+		while (j<k){
+			if (argv[i][j]>='a' && argv[i][j]<'z')
+			min++;
+			else if (argv[i][j]>='A' && argv[i][j]<'Z')
+			maj++;
+			else other++;
+			j++;
+		}
+	}
+	printf("il y a %d minuscules, %d majuscules et %d autres caractères\n",min,maj,other);
+	return EXIT_SUCCESS ;
+}

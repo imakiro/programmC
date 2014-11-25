@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void Dec2Bin(char dec[], char bin[]){
+	int decimal = atoi(dec);
+	int valeur=32768; //2^15
+	for (int i=15;i>=0;i--){
+		float temp = (float)decimal;
+		if (temp/valeur > 0){
+			decimal/=2;
+			bin[i]='1';
+		}else {
+		bin[i]='0';
+		}
+		valeur/=2;
+	}
+}
+
+
+int main (int argc, char *argv[]){
+	char s[16] = "" ;
+	Dec2Bin(argv[1], s);
+	printf("<%s>10 = <%s>2 \n",argv[1],s); 
+
+return EXIT_SUCCESS ;
+}
